@@ -39,6 +39,24 @@ class WeatherData:
         rh_forecast = forecast.get_series(['rh'])
         print(rh_forecast)
 
+    def getSnow(self):
+        api.set_granularity('daily')
+        forecast = api.get_forecast(city=self.city, state=self.state, country="US")
+        snow_forecast = forecast.get_series(['snow'])
+        print(snow_forecast)
+
+    def getSeaLevelPressure(self):
+        api.set_granularity('daily')
+        forecast = api.get_forecast(city=self.city, state=self.state, country="US")
+        slp_forecast = forecast.get_series(['slp'])
+        print(slp_forecast)
+
+    def getCloudCover(self):
+        api.set_granularity('daily')
+        forecast = api.get_forecast(city=self.city, state=self.state, country="US")
+        clouds_forecast = forecast.get_series(['clouds'])
+        print(clouds_forecast)
+
 """
 myData = WeatherData("San Jose", "CA")
 myData.getPrecip()
@@ -46,4 +64,8 @@ myData.getWindSpeed()
 myData.getWindDir()
 myData.getTemp()
 myData.getHumid()
+myData.getSnow()
+myData.getSeaLevelPressure()
+myData.getCloudCover()
 """
+
