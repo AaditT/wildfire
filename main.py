@@ -19,10 +19,10 @@ def extractData(csv_data):
         fires_by_county.append(county_total)
     return [fires_by_county, totalFires]
 
-def experimental():
+def experimental(csv_data):
     risk_by_county = []
     fires_by_county = extractData()[0]
-    totalFires = extractData(csv_data_2016)[1]
+    totalFires = extractData(csv_data)[1]
     for fire_in_county in fires_by_county:
         fire_risk = ((100 * fire_in_county) / (totalFires))
         risk_by_county.append(round(fire_risk, 3))
