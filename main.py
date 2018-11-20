@@ -30,6 +30,7 @@ def experimental():
         risk_by_county.append(round(fire_risk, 3))
     print(risk_by_county)
 
+# data visualization
 def visualize():
     pass
 
