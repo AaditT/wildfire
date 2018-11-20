@@ -2,8 +2,11 @@
 
 import main
 import matplotlib.pyplot as plt
+import pandas
 
-fires_by_county = main.experimental()
+cols = ['COUNTY', 'Total','Arson','Campfire','DebrisBurning','Elec.Power','Equip.Use','Ltng.','Misc.','P-W-F','Railroad','Smoking','Undet.','Vehicle']
+csv_data_2016 = pandas.read_csv('csv/2016_data.csv', names=cols)
+csv_data_2015 = pandas.read_csv('csv/2015_data.csv', names=cols)
 
 # makes sure that x-values exist at each of the 52 California counties
 x_vals = []
@@ -20,8 +23,8 @@ while even_counter < 53:
     even_counter += 2
 
 # function that creates the bar graph
-def barGraph():
-    plt.bar(x_vals, main.experimental(), align='center', alpha=0.5, color='r', width=0.8)
+def barGraph(csv_in):
+    plt.bar(x_vals, main.experimental(csv_in), align='center', alpha=0.5, color='r', width=0.8)
     plt.xticks(even_num_52)
     plt.ylabel('Experimental Chance of Wildfire (%)')
     plt.title('California County Code')
