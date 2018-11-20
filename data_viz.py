@@ -17,11 +17,12 @@ def barGraph():
     performance = experimental()
 
     plt.bar(y_pos, performance, align='center', alpha=0.5)
-    plt.xticks(y_pos, y_vals)
-    plt.ylabel('Usage')
-    plt.title('Programming language usage')
+    plt.yticks(y_vals)
+    plt.ylabel('Experimental Chance of Wildfire')
+    plt.title('California County Code')
 
     plt.show()
+barGraph()
 
 def pieChart():
 
