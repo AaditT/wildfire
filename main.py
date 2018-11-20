@@ -11,12 +11,14 @@ cols = ['','COUNTY','Total','Arson','Campfire','DebrisBurning','Elec.Power','Equ
 csv_data = pandas.read_csv('2016_data.csv', names=cols)
 
 def experimental():
+    """
     totalFires = 0
     x=1
     while x<15:
         totalFires = totalFires + int(csv_data.iloc[x, 1].replace(',', ''))
         x += 1
-    print(csv_data[1,0])
+    """
+    print(csv_data[0,0])
 
 
 experimental()
