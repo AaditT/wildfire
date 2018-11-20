@@ -5,19 +5,16 @@ import pandas
 from math import ceil
 
 cols = ['COUNTY', 'Total','Arson','Campfire','DebrisBurning','Elec.Power','Equip.Use','Ltng.','Misc.','P-W-F','Railroad','Smoking','Undet.','Vehicle']
-csv_data = pandas.read_csv('2016_data.csv', names=cols)
+csv_data_2016 = pandas.read_csv('2016_data.csv', names=cols)
 
 def extractData():
     fires_by_county = []
     totalFires = 0
     x = 1
-    for index, row in csv_data.iterrows():
+    for index, row in csv_data_2016.iterrows():
         county_total = int(row['Total'].replace(',', ''))
         totalFires += int(county_total)
         fires_by_county.append(county_total)
-    #for x in range(0, len(fires_by_county)):
-    #    print('County', x+1, ':', fires_by_county[x])
-    #print('Total Fires:', sum(fires_by_county))
     return [fires_by_county, totalFires]
 
 def experimental():
