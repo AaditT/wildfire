@@ -21,5 +21,3 @@ def barGraph():
     plt.ylabel('Experimental Chance of Wildfire (%)')
     plt.title('California County Code')
     plt.show()
-
-barGraph()
