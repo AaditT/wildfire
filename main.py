@@ -3,12 +3,9 @@ import csv
 import numpy
 import pandas
 from math import ceil
-import plotly.plotly as py
-import plotly.graph_objs as go
 
 cols = ['COUNTY', 'Total','Arson','Campfire','DebrisBurning','Elec.Power','Equip.Use','Ltng.','Misc.','P-W-F','Railroad','Smoking','Undet.','Vehicle']
 csv_data = pandas.read_csv('2016_data.csv', names=cols)
-print(csv_data)
 
 def extractData():
     fires_by_county = []
@@ -18,9 +15,9 @@ def extractData():
         county_total = int(row['Total'].replace(',', ''))
         totalFires += int(county_total)
         fires_by_county.append(county_total)
-    for x in range(0, len(fires_by_county)):
-        print('County', x+1, ':', fires_by_county[x])
-    print('Total Fires:', sum(fires_by_county))
+    #for x in range(0, len(fires_by_county)):
+    #    print('County', x+1, ':', fires_by_county[x])
+    #print('Total Fires:', sum(fires_by_county))
     return [fires_by_county, totalFires]
 
 def experimental():
@@ -30,10 +27,28 @@ def experimental():
     for fire_in_county in fires_by_county:
         fire_risk = ((100 * fire_in_county) / (totalFires))
         risk_by_county.append(round(fire_risk, 3))
-    print(risk_by_county)
+    return risk_by_county
 
 # data visualization
 def visualize():
-    pass
+    import matplotlib.pyplot as plt; plt.rcdefaults()
+    import numpy as np
+    import matplotlib.pyplot as plt
 
-experimental()
+    y_vals = []
+    counter = 1
+    while counter < 53:
+        y_vals.append(counter)
+        counter += 1
+
+    y_pos = y_vals
+    performance = experimental()
+
+    plt.bar(y_pos, performance, align='center', alpha=0.5)
+    plt.xticks(y_pos, y_vals)
+    plt.ylabel('Usage')
+    plt.title('Programming language usage')
+
+    plt.show()
+
+visualize()
