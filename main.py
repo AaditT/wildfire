@@ -79,4 +79,7 @@ def plot_history(history):
   plt.show()
 
 plot_history(history)
+<<<<<<< HEAD
 # END TENSORFLOW MODEL
+=======
+>>>>>>> ac13b440878bb7e20f0645abbbb7e0d4e9fa46bd
