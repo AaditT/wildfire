@@ -6,15 +6,24 @@ import pandas
 import tensorflow
 from tensorflow import keras
 
-cols = ['COUNTY','Total','Arson','Campfire','DebrisBurning','Elec.Power','Equip.Use','Ltng.','Misc.','P-W-F','Railroad,Smoking','Undet.','Vehicle']
-data = pandas.read_csv('2016_data.csv', names=cols)
-print(data)
+
+cols = ['','COUNTY','Total','Arson','Campfire','DebrisBurning','Elec.Power','Equip.Use','Ltng.','Misc.','P-W-F','Railroad,Smoking','Undet.','Vehicle']
+csv_data = pandas.read_csv('2016_data.csv', names=cols)
 
 def experimental():
-    pass
+    totalFires = 0
+    x=1
+    while x<15:
+        totalFires = totalFires + int(csv_data.iloc[x, 1].replace(',', ''))
+        x += 1
+    print(csv_data[1,0])
 
 
+experimental()
+
+'''
 # BEGIN TENSORFLOW MODEL
+data = tensorflow.convert_to_tensor(csv_data)
 (train_data, train_labels), (test_data, test_labels) = data.load_data()
 order = numpy.argsort(numpy.random.random(train_labels.shape))
 train_data = train_data[order]
@@ -23,11 +32,10 @@ train_labels = train_labels[order]
 print("Training set: {}".format(train_data.shape))
 print("Testing set:  {}".format(test_data.shape))
 
-''' IN CASE WE WANT TO VISUALIZE A TABLE
-columns = ['CRIM', 'ZN', 'INDUS', 'CHAS', 'NOX', 'RM', 'AGE', 'DIS', 'RAD', 'TAX', 'PTRATIO', 'B', 'LSTAT']
-df = pandas.DataFrame(train_data, columns=columns)
-print(df)
-'''
+#IN CASE WE WANT TO VISUALIZE A TABLE
+#columns = ['CRIM', 'ZN', 'INDUS', 'CHAS', 'NOX', 'RM', 'AGE', 'DIS', 'RAD', 'TAX', 'PTRATIO', 'B', 'LSTAT']
+#df = pandas.DataFrame(train_data, columns=columns)
+#print(df)
 
 # Normalize features -- this makes training easier.
 mean = train_data.mean(axis=0)
@@ -79,7 +87,5 @@ def plot_history(history):
   plt.show()
 
 plot_history(history)
-<<<<<<< HEAD
 # END TENSORFLOW MODEL
-=======
->>>>>>> ac13b440878bb7e20f0645abbbb7e0d4e9fa46bd
+'''
