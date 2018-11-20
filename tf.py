@@ -1,21 +1,15 @@
 from __future__ import absolute_import, division, print_function
 import matplotlib.pyplot as plt
-import csv
 import numpy
 import pandas
 import tensorflow
 from tensorflow import keras
 
-cols = ['COUNTY','Total','Arson','Campfire','DebrisBurning','Elec.Power','Equip.Use','Ltng.','Misc.','P-W-F','Railroad,Smoking','Undet.','Vehicle']
-data = pandas.read_csv('2016_data.csv', names=cols)
-print(data)
+print("TensorFlow Version", tensorflow.__version__)
 
-def experimental():
-    pass
-
-
-# BEGIN TENSORFLOW MODEL
+data = keras.datasets.boston_housing
 (train_data, train_labels), (test_data, test_labels) = data.load_data()
+
 order = numpy.argsort(numpy.random.random(train_labels.shape))
 train_data = train_data[order]
 train_labels = train_labels[order]
@@ -79,4 +73,4 @@ def plot_history(history):
   plt.show()
 
 plot_history(history)
-# END TENSORFLOW MODEL
+
