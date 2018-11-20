@@ -3,6 +3,8 @@ import csv
 import numpy
 import pandas
 from math import ceil
+import plotly.plotly as py
+import plotly.graph_objs as go
 
 cols = ['COUNTY', 'Total','Arson','Campfire','DebrisBurning','Elec.Power','Equip.Use','Ltng.','Misc.','P-W-F','Railroad','Smoking','Undet.','Vehicle']
 csv_data = pandas.read_csv('2016_data.csv', names=cols)
