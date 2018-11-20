@@ -28,27 +28,3 @@ def experimental():
         fire_risk = ((100 * fire_in_county) / (totalFires))
         risk_by_county.append(round(fire_risk, 3))
     return risk_by_county
-
-# data visualization
-def visualize():
-    import matplotlib.pyplot as plt; plt.rcdefaults()
-    import numpy as np
-    import matplotlib.pyplot as plt
-
-    y_vals = []
-    counter = 1
-    while counter < 53:
-        y_vals.append(counter)
-        counter += 1
-
-    y_pos = y_vals
-    performance = experimental()
-
-    plt.bar(y_pos, performance, align='center', alpha=0.5)
-    plt.xticks(y_pos, y_vals)
-    plt.ylabel('Usage')
-    plt.title('Programming language usage')
-
-    plt.show()
-
-visualize()
