@@ -7,19 +7,20 @@ import tensorflow
 from tensorflow import keras
 
 
-cols = ['','COUNTY','Total','Arson','Campfire','DebrisBurning','Elec.Power','Equip.Use','Ltng.','Misc.','P-W-F','Railroad,Smoking','Undet.','Vehicle']
+cols = ['COUNTY','Total','Arson','Campfire','DebrisBurning','Elec.Power','Equip.Use','Ltng.','Misc.','P-W-F','Railroad,Smoking','Undet.','Vehicle']
 csv_data = pandas.read_csv('2016_data.csv', names=cols)
 
 def experimental():
-    """
+    fires_by_county = []
     totalFires = 0
-    x=1
-    while x<15:
-        totalFires = totalFires + int(csv_data.iloc[x, 1].replace(',', ''))
+    x = 1
+    while x < 13:
+        county_total = int(csv_data.iloc[1, x])
+        totalFires = totalFires + county_total
+        fires_by_county.append(county_total)
         x += 1
-    """
-    print(csv_data[0,0])
-
+    for x in range(0, len(fires_by_county)):
+        print('County', x, ':', fires_by_county[x])
 
 experimental()
 
