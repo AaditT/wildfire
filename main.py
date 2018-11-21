@@ -18,7 +18,6 @@ def extractData(csv_data):
         totalFires += int(county_total)
         fires_array.append(county_total)
         fires_dict[str(row['COUNTY'])] = county_total
-    print(fires_dict)
     return [fires_array, totalFires, fires_dict]
 
 def experimental(csv_data):
