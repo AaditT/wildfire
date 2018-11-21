@@ -9,14 +9,17 @@ csv_data_2016 = pandas.read_csv('csv/2016_data.csv', names=cols)
 csv_data_2015 = pandas.read_csv('csv/2015_data.csv', names=cols)
 
 def extractData(csv_data):
-    fires_by_county = []
+    fires_array = []
+    fires_dict  = {}
     totalFires = 0
     x = 1
     for index, row in csv_data.iterrows():
         county_total = int(str(row['Total']).replace(',', ''))
         totalFires += int(county_total)
-        fires_by_county.append(county_total)
-    return [fires_by_county, totalFires]
+        fires_array.append(county_total)
+        fires_dict[str(row['COUNTY'])] = county_total
+    print(fires_dict)
+    return [fires_array, totalFires, fires_dict]
 
 def experimental(csv_data):
     risk_by_county = []
