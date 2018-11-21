@@ -1,3 +1,5 @@
+# https://stackoverflow.com/questions/19068862/how-to-overplot-a-line-on-a-scatter-plot-in-python
+
 import statsmodels.api as sm
 import numpy as np
 import matplotlib.pyplot as plt
