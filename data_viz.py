@@ -1,5 +1,5 @@
 # Data Visualization of Fire Risk
-
+# TODO: add comparitive bar graph
 import main
 import matplotlib.pyplot as plt
 import pandas
