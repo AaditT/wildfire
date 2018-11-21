@@ -13,7 +13,7 @@ def extractData(csv_data):
     totalFires = 0
     x = 1
     for index, row in csv_data.iterrows():
-        county_total = int(row['Total'].replace(',', ''))
+        county_total = int(str(row['Total']).replace(',', ''))
         totalFires += int(county_total)
         fires_by_county.append(county_total)
     return [fires_by_county, totalFires]

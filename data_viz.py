@@ -11,21 +11,30 @@ csv_data_2015 = pandas.read_csv('csv/2015_data.csv', names=cols)
 # makes sure that x-values exist at each of the 52 California counties
 x_vals = []
 counter = 1
-while counter < 53:
+while counter < 55:
     x_vals.append(counter)
     counter += 1
 
 # makes sure that x-axis has ticks at every even number to prevent overcrowding on x-axis
-even_num_52 = []
+even_num_54 = []
 even_counter = 0
-while even_counter < 53:
-    even_num_52.append(even_counter)
+while even_counter < 55:
+    even_num_54.append(even_counter)
     even_counter += 2
 
 # function that creates the bar graph
-def barGraph(csv_in):
+def barGraph_2015(csv_in):
     plt.bar(x_vals, main.experimental(csv_in), align='center', alpha=0.5, color='r', width=0.8)
-    plt.xticks(even_num_52)
+    plt.xticks(even_num_54)
     plt.ylabel('Experimental Chance of Wildfire (%)')
-    plt.title('California County Code')
+    plt.title('California County Code (2015)')
     plt.show()
+
+def barGraph_2016(csv_in):
+    plt.bar(x_vals, main.experimental(csv_in), align='center', alpha=0.5, color='r', width=0.8)
+    plt.xticks(even_num_54)
+    plt.ylabel('Experimental Chance of Wildfire (%)')
+    plt.title('California County Code (2016)')
+    plt.show()
+
+barGraph_2015(csv_data_2015)
