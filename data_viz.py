@@ -14,8 +14,8 @@ compiled_2015_2016 = []
 
 # makes sure that x-values exist at each of the 52 California counties
 x_vals = []
-counter = 1
-while counter < 59:
+counter = 0
+while counter < 58:
     x_vals.append(counter)
     counter += 1
 
@@ -46,7 +46,7 @@ def barGraph_2015_2016():
 
     plt.bar(x_vals, main.experimental(csv_data_2015), align='edge', alpha=0.5, color='r', width=-0.35)
     plt.bar(x_vals, main.experimental(csv_data_2016), align='edge', alpha=0.5, color='b', width=0.35)
-    plt.xticks(np.arange(2, 59, step=1))
+    plt.xticks(np.arange(0, 57, step=1))
     plt.xticks(np.arange(58), county_list, rotation=90)
     plt.xlabel('California County Code (2015 & 2016)')
     plt.ylabel('Experimental Chance of Wildfire (%)')
