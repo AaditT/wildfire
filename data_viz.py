@@ -4,6 +4,7 @@
 import main
 import matplotlib.pyplot as plt
 import pandas
+import numpy as np
 
 cols = ['COUNTY', 'Total','Arson','Campfire','DebrisBurning','Elec.Power','Equip.Use','Ltng.','Misc.','P-W-F','Railroad','Smoking','Undet.','Vehicle']
 csv_data_2016 = pandas.read_csv('csv/2016_data.csv', names=cols)
@@ -46,7 +47,8 @@ def barGraph_2015_2016():
     new_x_vals =[]
     plt.bar(x_vals, main.experimental(csv_data_2015), align='edge', alpha=0.5, color='r', width=-0.35)
     plt.bar(x_vals, main.experimental(csv_data_2016), align='edge', alpha=0.5, color='b', width=0.35)
-    plt.xticks(county_list)
+    plt.xticks(np.arange(0, 54, step=1))
+    plt.xticks(np.arange(3), ('a','b','c'))
     plt.xlabel('California County Code (2015 & 2016)')
     plt.ylabel('Experimental Chance of Wildfire (%)')
     plt.title('California Wildfire Risk by County (2015 & 2016)')
