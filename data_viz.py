@@ -14,14 +14,14 @@ compiled_2015_2016 = []
 # makes sure that x-values exist at each of the 52 California counties
 x_vals = []
 counter = 1
-while counter < 55:
+while counter < 59:
     x_vals.append(counter)
     counter += 1
 
 # makes sure that x-axis has ticks at every even number to prevent overcrowding on x-axis
 even_num_54 = []
 even_counter = 0
-while even_counter < 55:
+while even_counter < 59:
     even_num_54.append(even_counter)
     even_counter += 2
 
