@@ -30,14 +30,16 @@ county_list = list(main.extractData(csv_data_2015)[2].keys())
 # functions that creates the bar graph for each year accordingly
 def barGraph_2015():
     plt.bar(x_vals, main.experimental(csv_data_2015), align='center', alpha=0.5, color='r', width=0.8)
-    plt.xticks(even_num_54)
+    plt.xticks(np.arange(0, 57, step=1))
+    plt.xticks(np.arange(58), county_list, rotation=90)
     plt.ylabel('Experimental Chance of Wildfire (%)')
     plt.title('California County Code (2015)')
     plt.show()
 
 def barGraph_2016():
     plt.bar(x_vals, main.experimental(csv_data_2016), align='center', alpha=0.5, color='r', width=0.8)
-    plt.xticks(even_num_54)
+    plt.xticks(np.arange(0, 57, step=1))
+    plt.xticks(np.arange(58), county_list, rotation=90)
     plt.ylabel('Experimental Chance of Wildfire (%)')
     plt.title('California County Code (2016)')
     plt.show()
@@ -53,8 +55,7 @@ def barGraph_2015_2016():
     plt.title('California Wildfire Risk by County (2015 & 2016)')
     plt.legend(['2015 Wildfire Risk','2016 Wildfire Risk'], loc='upper left')
     plt.show()
-barGraph_2015_2016()
 # 2015 data:
-# barGraph_2015()
+barGraph_2015()
 # 2016 data:
 # barGraph_2016()
