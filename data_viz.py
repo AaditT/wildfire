@@ -42,10 +42,8 @@ def barGraph_2016():
 
 def barGraph_2015_2016():
     new_x_vals =[]
-    for value in x_vals:
-        new_x_vals.append(value+0.2)
-    plt.bar(x_vals, main.experimental(csv_data_2015), align='center', alpha=0.5, color='r', width=0.25)
-    plt.bar(new_x_vals, main.experimental(csv_data_2016), align='center', alpha=0.5, color='b', width=0.25)
+    plt.bar(x_vals, main.experimental(csv_data_2015), align='edge', alpha=0.5, color='r', width=-0.35)
+    plt.bar(x_vals, main.experimental(csv_data_2016), align='edge', alpha=0.5, color='b', width=0.35)
     plt.xticks(even_num_54)
     plt.ylabel('Experimental Chance of Wildfire (%)')
     plt.title('California County Code (2015 & 2016)')
