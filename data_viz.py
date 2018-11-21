@@ -18,13 +18,15 @@ counter = 0
 while counter < 58:
     x_vals.append(counter)
     counter += 1
-county_list = main.county_list
+
 # makes sure that x-axis has ticks at every even number to prevent overcrowding on x-axis
 even_num_54 = []
 even_counter = 0
 while even_counter < 59:
     even_num_54.append(even_counter)
     even_counter += 2
+
+county_list = list(main.extractData(csv_data_2015)[2].keys())
 
 # functions that creates the bar graph for each year accordingly
 def barGraph_2015():
