@@ -26,6 +26,7 @@ while even_counter < 59:
     even_num_54.append(even_counter)
     even_counter += 2
 
+# list of CA counties
 county_list = list(main.extractData(csv_data_2015)[2].keys())
 
 # functions that creates the bar graph for each year accordingly
