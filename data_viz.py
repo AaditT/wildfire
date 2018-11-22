@@ -9,6 +9,7 @@ import numpy as np
 cols = ['COUNTY', 'Total','Arson','Campfire','DebrisBurning','Elec.Power','Equip.Use','Ltng.','Misc.','P-W-F','Railroad','Smoking','Undet.','Vehicle']
 csv_data_2016 = pandas.read_csv('csv/2016_data.csv', names=cols)
 csv_data_2015 = pandas.read_csv('csv/2015_data.csv', names=cols)
+csv_data_2014 = pandas.read_csv('csv/2014_data.csv', names=cols)
 
 compiled_2015_2016 = []
 
@@ -65,7 +66,4 @@ def barGraph_2015_2016():
     plt.legend(['2015 Wildfire Risk','2016 Wildfire Risk'], loc='upper left')
     plt.show()
 
-# 2015 data:
-# barGraph_2015()
-# 2016 data:
-# barGraph_2016()
+barGraph_2014()
