@@ -30,6 +30,14 @@ while even_counter < 59:
 county_list = list(main.extractData(csv_data_2015)[2].keys())
 
 # functions that creates the bar graph for each year accordingly
+def barGraph_2014():
+    plt.bar(x_vals, main.experimental(csv_data_2014), align='center', alpha=0.5, color='r', width=0.8)
+    plt.xticks(np.arange(0, 57, step=1))
+    plt.xticks(np.arange(58), county_list, rotation=90)
+    plt.ylabel('Experimental Chance of Wildfire (%)')
+    plt.title('California County Code (2014)')
+    plt.show()
+
 def barGraph_2015():
     plt.bar(x_vals, main.experimental(csv_data_2015), align='center', alpha=0.5, color='r', width=0.8)
     plt.xticks(np.arange(0, 57, step=1))

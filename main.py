@@ -7,6 +7,7 @@ from math import ceil
 cols = ['COUNTY', 'Total','Arson','Campfire','DebrisBurning','Elec.Power','Equip.Use','Ltng.','Misc.','P-W-F','Railroad','Smoking','Undet.','Vehicle']
 csv_data_2016 = pandas.read_csv('csv/2016_data.csv', names=cols)
 csv_data_2015 = pandas.read_csv('csv/2015_data.csv', names=cols)
+csv_data_2014 = pandas.read_csv('csv/201r_data.csv', names=cols)
 
 def extractData(csv_data):
     fires_array = []
