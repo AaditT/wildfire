@@ -21,6 +21,8 @@ def extractData(csv_data):
         fires_dict[str(row['UNIT'])] = unit_total
     return [fires_array, totalFires, fires_dict]
 
+unit_list = list(extractData(csv_data_2014)[2].keys())
+
 def getRisk(csv_data):
     risk_by_unit = []
     fires_by_unit = extractData(csv_data)[0]
@@ -30,9 +32,9 @@ def getRisk(csv_data):
         risk_by_unit.append(round(fire_risk, 3))
     return risk_by_unit
 
-def barGraph(years, *csv_data_list):
-    unit_list = list(extractData(csv_data_2014)[2].keys())
-    unit_list.insert(0, '')
+def barChart(years, *csv_data_list):
+    labels = [unit for unit in unit_list]
+    labels.insert(0, '')
     width=0.2
     i = 1
     x_vals = [x for x in range(1, 22)]
@@ -41,9 +43,19 @@ def barGraph(years, *csv_data_list):
         x_vals = [(val + width) for val in x_vals]
         i += 1
     plt.xticks(numpy.arange(1, 22, step=1))
-    plt.xticks(numpy.arange(22), unit_list, rotation=90)
+    plt.xticks(numpy.arange(22), labels, rotation=90)
     plt.ylabel('EXPERIMENTAL CHANCE OF WILDFIRE (%)')
     plt.title('FIRE RISK FOR ALL CAL FIRE UNITS FROM ' + years)
     plt.show()
 
-barGraph('2014-2016', csv_data_2014, csv_data_2015, csv_data_2016)
+def pieChart(year, csv_data):
+    labels = unit_list
+    explode = [0.1 for x in range(1, 22)]
+    data = extractData(csv_data)[0]
+    plt.pie(data, labels=labels, autopct='%1.1f%%', startangle=90)
+    plt.axis('equal')
+    plt.title('FIRES BY CAL FIRE UNIT IN ' + year)
+    plt.show()
+
+barChart('2014-2016', csv_data_2014, csv_data_2015, csv_data_2016)
+pieChart('2016', csv_data_2016)
