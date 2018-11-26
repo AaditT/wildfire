@@ -1,19 +1,10 @@
 # https://stackoverflow.com/questions/19068862/how-to-overplot-a-line-on-a-scatter-plot-in-python
+# playground to test different machine learning models
 
-import statsmodels.api as sm
-import numpy as np
-import matplotlib.pyplot as plt
+import numpy
 
-X = np.random.rand(100)
-Y = X + np.random.rand(100)*0.1
+x_vals = [1,2,3,4,5,6,7,8,9,10]
+y_vals = [2,4,5,7,9,12,14,16,18,22]
 
-results = sm.OLS(Y,sm.add_constant(X)).fit()
-
-print (results.summary())
-
-plt.scatter(X,Y)
-
-X_plot = np.linspace(0,1,100)
-plt.plot(X_plot, X_plot*results.params[1] + results.params[0])
-
-plt.show()
+coefficient = numpy.polyfit(x_vals, y_vals, 1)[0]
+print(coefficient)
