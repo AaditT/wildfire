@@ -6,5 +6,6 @@ import numpy
 x_vals = [1,2,3,4,5,6,7,8,9,10]
 y_vals = [2,4,5,7,9,12,14,16,18,22]
 
-coefficient = numpy.polyfit(x_vals, y_vals, 1)[0]
-print(coefficient)
+def getC(x_vals,y_vals):
+    coefficient = numpy.polyfit(x_vals, y_vals, 1)[0]
+    return coefficient
