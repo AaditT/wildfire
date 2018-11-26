@@ -4,6 +4,8 @@ import numpy
 import pandas
 from math import ceil
 
+# Hello from Aadit's Surface Pro
+
 cols = ['UNIT', 'Total','Arson','Campfire','DebrisBurning','Elec.Power','Equip.Use','Ltng.','Misc.','P-W-F','Railroad','Smoking','Undet.','Vehicle']
 csv_data_2016 = pandas.read_csv('csv/2016_data.csv', names=cols)
 csv_data_2015 = pandas.read_csv('csv/2015_data.csv', names=cols)
