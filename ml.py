@@ -13,9 +13,8 @@ class linearRegression:
 
     # numpy; returns coefficient
     def _numpy_(x_vals,y_vals):
-        coefficient = numpy.polyfit(x_vals, y_vals, 1)[0]
-        return coefficient
+        return numpy.polyfit(x_vals, y_vals, 1)[0]
 
     # scipy; returns coefficient, intercept, rvalue, pvalue, stderr
     def _scipy_(x_vals,y_vals):
-        print(stats.linregress(x_vals, y_vals))
+        return stats.linregress(x_vals, y_vals)
