@@ -10,6 +10,9 @@ cols = ['UNIT', 'Total','Arson','Campfire','DebrisBurning','Elec.Power','Equip.U
 csv_data_2016 = pandas.read_csv('csv/2016_data.csv', names=cols)
 csv_data_2015 = pandas.read_csv('csv/2015_data.csv', names=cols)
 csv_data_2014 = pandas.read_csv('csv/2014_data.csv', names=cols)
+csv_data_2013 = pandas.read_csv('csv/2013_data.csv', names=cols)
+csv_data_2012 = pandas.read_csv('csv/2012_data.csv', names=cols)
+
 
 def extractData(csv_data):
     fires_array = []
@@ -37,7 +40,7 @@ def getRisk(csv_data):
 def barChart(years, *csv_data_list):
     labels = [unit for unit in unit_list]
     labels.insert(0, '')
-    width=0.2
+    width=0.15
     i = 1
     x_vals = [x for x in range(1, 22)]
     for csv_data in csv_data_list:
@@ -59,5 +62,5 @@ def pieChart(year, csv_data):
     plt.title('FIRES BY CAL FIRE UNIT IN ' + year)
     plt.show()
 
-barChart('2014-2016', csv_data_2014, csv_data_2015, csv_data_2016)
+barChart('2012-2016', csv_data_2012, csv_data_2013, csv_data_2014, csv_data_2015, csv_data_2016)
 pieChart('2016', csv_data_2016)
