@@ -5,6 +5,10 @@ import numpy
 from scipy import stats
 import matplotlib as plt
 import numpy as np
+import pandas as pd
+from sklearn import svm
+
+
 
 x_vals = [1,2,3,4,5,6,7,8,9,10]
 y_vals = [2,4,5,7,9,12,14,16,18,22]
@@ -18,3 +22,6 @@ class linearRegression:
     # scipy; returns coefficient, intercept, rvalue, pvalue, stderr
     def _scipy_(x_vals,y_vals):
         return stats.linregress(x_vals, y_vals)
+
+class _scikit_:
+    data = pd.read_csv('csv/2016_data.csv')
